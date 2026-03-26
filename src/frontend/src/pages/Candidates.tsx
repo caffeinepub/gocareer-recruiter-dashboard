@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -30,18 +30,6 @@ import { toast } from "sonner";
 import type { Candidate, Job, Note } from "../backend";
 import { Variant_hired_offer_screening_interview_applied } from "../backend";
 import { backend } from "../lib/backendClient";
-
-const candidatePhotos: Record<string, string> = {
-  "Amara Johnson": "/assets/generated/candidate-1.dim_200x200.jpg",
-  "Raj Patel": "/assets/generated/candidate-2.dim_200x200.jpg",
-  "Sarah Mitchell": "/assets/generated/candidate-3.dim_200x200.jpg",
-  "Kevin Chen": "/assets/generated/candidate-4.dim_200x200.jpg",
-  "Maria Rodriguez": "/assets/generated/candidate-5.dim_200x200.jpg",
-  "Omar Hassan": "/assets/generated/candidate-6.dim_200x200.jpg",
-  "Marcus Williams": "/assets/generated/candidate-7.dim_200x200.jpg",
-  "Tom Harrison": "/assets/generated/candidate-8.dim_200x200.jpg",
-  "Priya Sharma": "/assets/generated/candidate-9.dim_200x200.jpg",
-};
 
 const stages = [
   {
@@ -287,10 +275,6 @@ export function Candidates() {
                     >
                       <div className="flex items-center gap-2.5">
                         <Avatar className="w-8 h-8 flex-shrink-0">
-                          <AvatarImage
-                            src={candidatePhotos[candidate.name]}
-                            alt={candidate.name}
-                          />
                           <AvatarFallback className="bg-indigo-100 text-indigo-700 text-xs font-semibold">
                             {candidate.name
                               .split(" ")
@@ -332,10 +316,6 @@ export function Candidates() {
               </SheetHeader>
               <div className="flex flex-col items-center mb-6">
                 <Avatar className="w-20 h-20 mb-3">
-                  <AvatarImage
-                    src={candidatePhotos[selectedCandidate.name]}
-                    alt={selectedCandidate.name}
-                  />
                   <AvatarFallback className="bg-indigo-100 text-indigo-700 text-xl font-semibold">
                     {selectedCandidate.name
                       .split(" ")

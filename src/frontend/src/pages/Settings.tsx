@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -24,19 +24,19 @@ const defaultTeamMembers: TeamMember[] = [
     name: "James Park",
     role: "Recruiter",
     email: "james@gocareer.io",
-    avatarUrl: "/assets/generated/candidate-4.dim_200x200.jpg",
+    avatarUrl: "",
   },
   {
     name: "Emily Torres",
     role: "HR Manager",
     email: "emily@gocareer.io",
-    avatarUrl: "/assets/generated/candidate-5.dim_200x200.jpg",
+    avatarUrl: "",
   },
   {
     name: "David Kim",
     role: "Technical Recruiter",
     email: "david@gocareer.io",
-    avatarUrl: "/assets/generated/candidate-2.dim_200x200.jpg",
+    avatarUrl: "",
   },
 ];
 
@@ -74,7 +74,7 @@ export function Settings() {
     try {
       await backend.saveCallerUserProfile({
         ...profile,
-        avatarUrl: "/assets/generated/recruiter-avatar.dim_200x200.jpg",
+        avatarUrl: "",
       });
       toast.success("Profile saved");
     } catch {
@@ -162,10 +162,6 @@ export function Settings() {
         >
           <div className="flex items-center gap-5 mb-6">
             <Avatar className="w-20 h-20">
-              <AvatarImage
-                src="/assets/generated/recruiter-avatar.dim_200x200.jpg"
-                alt="Sarah Chen"
-              />
               <AvatarFallback className="bg-indigo-100 text-indigo-700 text-xl font-bold">
                 SC
               </AvatarFallback>
@@ -299,7 +295,6 @@ export function Settings() {
                 className="bg-white rounded-xl shadow-card p-4 flex items-center gap-4"
               >
                 <Avatar className="w-12 h-12">
-                  <AvatarImage src={member.avatarUrl} alt={member.name} />
                   <AvatarFallback className="bg-indigo-100 text-indigo-700 font-semibold">
                     {member.name
                       .split(" ")
